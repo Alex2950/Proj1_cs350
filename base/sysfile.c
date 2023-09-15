@@ -348,6 +348,28 @@ sys_mkdir(void)
   end_op();
   return 0;
 }
+//*
+int 
+sys_mkdir2(void)
+{
+  char *path1, *path2;
+  struct inode *ip1, *ip2;
+  begin_op();
+  if (argstr(0, &path1) < 0 || (ip1 = create(path1, T_DIR, 0, 0)) == 0) {
+    end_op();
+    return -1;
+  }
+  if (argstr(1, &path2) < 0 || (ip2 = create(path2, T_DIR, 0, 0)) == 0) {
+    iunlockput(ip1); //this will allow the first dir to be made if just second fails
+    end_op();
+    return -1;
+  }
+  iunlockput(ip1);
+  iunlockput(ip2);
+  end_op();
+
+  return 0;
+}
 
 int
 sys_mknod(void)
