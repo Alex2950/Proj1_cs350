@@ -96,3 +96,14 @@ sys_shutdown(void)
   outw(0x604, 0x0 | 0x2000);
   return 0;
 }
+
+int sys_exit2(void)
+{
+  int exitstatus;
+  if (argint(0, &exitstatus) < 0) {
+    return -1;
+  }
+  cprintf("%d\n", exitstatus);
+  exit();
+  return 0;
+}
