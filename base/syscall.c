@@ -106,6 +106,10 @@ extern int sys_uptime(void);
 extern int sys_shutdown(void);
 extern int sys_mkdir2(void);
 extern int sys_exit2(void);
+<<<<<<< HEAD
+=======
+extern int sys_shutdown2(void);
+>>>>>>> c40abfcf57c5d9f12e036e461b0f80ad2c137148
 extern int sys_touch(void);
 
 static int (*syscalls[])(void) = {
@@ -131,9 +135,10 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_shutdown]   sys_shutdown,
-[SYS_mkdir2]  sys_mkdir2,
 [SYS_exit2]   sys_exit2,
-[SYS_touch] sys_touch,
+[SYS_mkdir2]  sys_mkdir2,
+[SYS_shutdown2]   sys_shutdown2,
+[SYS_touch]   sys_touch,
 };
 
 void

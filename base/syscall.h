@@ -23,4 +23,5 @@
 #define SYS_shutdown 22
 #define SYS_mkdir2  23
 #define SYS_exit2 24
+#define SYS_shutdown2 25
 #define SYS_touch 26
