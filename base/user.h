@@ -27,6 +27,7 @@ void shutdown(void);
 int mkdir2(char*,char*);
 void exit2(int);
 void shutdown2(char*);
+void touch(char*);
 
 // ulib.c
 int stat(char*, struct stat*);

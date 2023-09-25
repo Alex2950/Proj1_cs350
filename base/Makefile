@@ -178,6 +178,7 @@ UPROGS=\
 	_zombie\
 	_shutdown \
 	_shutdown2 \
+	_touch \
 	_uptime2 \
 	_mkdir2 \
 	_exit2 \

@@ -371,6 +371,24 @@ sys_mkdir2(void)
   return 0;
 }
 
+int 
+sys_touch(void)
+{
+  char *path1;
+  struct inode *ip1;
+  begin_op();
+  if (argstr(0, &path1) < 0 || (ip1 = create(path1, T_FILE, 0, 0)) == 0) {
+    end_op();
+    return -1;
+  }
+  
+  iunlockput(ip1);
+  end_op();
+
+  return 0;
+}
+
+
 int
 sys_mknod(void)
 {
