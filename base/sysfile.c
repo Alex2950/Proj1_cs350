@@ -370,6 +370,19 @@ sys_mkdir2(void)
 
   return 0;
 }
+int sys_touch(void) {
+    char *path;
+  struct inode *ip;
+
+  begin_op();
+  if(argstr(0, &path) < 0 || (ip = create(path, T_FILE, 0, 0)) == 0){
+    end_op();
+    return -1;
+  }
+  iunlockput(ip);
+  end_op();
+  return 0;
+}
 
 int
 sys_mknod(void)

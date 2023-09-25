@@ -1,0 +1,5 @@
+We created the touch system call in sysfile.c, based on touch in UNIX.
+It creates an empty file named based on a single argument passed in.
+It is useful when a user doesn't have data to store yet but needs to create the file.
+The system call will check if the file already exists as to not overwrite existing data
+if the file does not exist create will make the file and iunlockput is used to unlock the file.
