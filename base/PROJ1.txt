@@ -24,7 +24,7 @@ mkdir2 syscall: Works similarly to the mkdir system call. The difference is
 two paths and inodes will be used instead of one. As a result create and iunlockput
 will each be used twice to create and provide the directories.
 
-exit2 syscall:
+exit2 syscall: Works the same as the exit system call but an argument is read from the user as an exit status. An if statement checks if the value is below 0 and if it is, then the function returns -1; otherwise the exit status is printed, and the exit system call continues normally.
 
 
 
@@ -32,6 +32,7 @@ Simple working test cases:
 shutdown2 hello world
 exit 1
 mkdir2 hello world 
+exit2 20
 ...
 and many more. All syscalls work as laid out in document specs
 
