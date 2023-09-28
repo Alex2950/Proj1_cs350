@@ -1,3 +1,37 @@
+STATUS OF IMPLEMENTATION:
+Complete, with extra credit (see last section for explanation).
+
+WORK COMPLETED:
+Clay: 
+shutdown2 syscall
+
+Alex:
+mkdir2 syscall
+git repo setup
+
+Michael:
+exit2 syscall
+
+As a group:
+touch syscall
+
+DESCRIPTION OF HOW CODE WORKS:
+shutdown2 syscall:
+
+mkdir2 syscall:
+
+exit2 syscall:
+
+
+
+Simple working test cases:
+shutdown2 hello world
+exit 1
+mkdir2 hello world 
+...
+and many more. All syscalls work as laid out in document specs
+
+EXTRA CREDIT:
 We created the touch system call in sysfile.c, based on touch in UNIX.
 It creates an empty file, which is named by the single user argument passed in.
 It is useful when a user doesn't have data to store yet but needs to create the file.
