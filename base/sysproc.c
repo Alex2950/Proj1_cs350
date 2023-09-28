@@ -101,11 +101,14 @@ int
 sys_shutdown2(void)
 {
   char *msg;
+  // place user arg in msg
   if(argstr(0,&msg) < 0)
   {
     return -1;
   }
+  // print user msg
   cprintf("%s\n", msg);
+  //shutsdown xv6
   outw(0xB004, 0x0 | 0x2000);
   outw(0x604, 0x0 | 0x2000);
   return 0;
@@ -114,10 +117,13 @@ sys_shutdown2(void)
 int sys_exit2(void)
 {
   int exitstatus;
+  // place user arg in exit status
   if (argint(0, &exitstatus) < 0) {
     return -1;
   }
+  //print status
   cprintf("%d\n", exitstatus);
+  //exit process
   exit();
   return 0;
 }

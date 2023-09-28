@@ -354,6 +354,7 @@ sys_mkdir2(void)
 {
   char *path1, *path2;
   struct inode *ip1, *ip2;
+  //called at beginning of FS syscalls
   begin_op();
   if (argstr(0, &path1) < 0 || (ip1 = create(path1, T_DIR, 0, 0)) == 0) {
     end_op();

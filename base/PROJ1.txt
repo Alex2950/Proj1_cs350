@@ -16,7 +16,9 @@ As a group:
 touch syscall
 
 DESCRIPTION OF HOW CODE WORKS:
-shutdown2 syscall:
+shutdown2 syscall: Works identical to the first shutdown, 
+with the addition of needing to get the user's message off of the trap frame.
+This is then printed in kernel space before the program shuts down.
 
 mkdir2 syscall:
 
