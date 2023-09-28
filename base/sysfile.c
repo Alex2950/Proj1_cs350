@@ -356,8 +356,8 @@ sys_mkdir2(void)
   struct inode *ip1, *ip2;
   //called at beginning of FS syscalls
   begin_op();
-  if (argstr(0, &path1) < 0 || (ip1 = create(path1, T_DIR, 0, 0)) == 0) {
-    end_op();
+  if (argstr(0, &path1) < 0 || (ip1 = create(path1, T_DIR, 0, 0)) == 0) { //create will create the directory
+    end_op(); // operation will end if the directory was already made
     return -1;
   }
   if (argstr(1, &path2) < 0 || (ip2 = create(path2, T_DIR, 0, 0)) == 0) {
@@ -365,7 +365,7 @@ sys_mkdir2(void)
     end_op();
     return -1;
   }
-  iunlockput(ip1);
+  iunlockput(ip1); //iunlockput makes the files accessable
   iunlockput(ip2);
   end_op();
 

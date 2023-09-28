@@ -13,14 +13,16 @@ Michael:
 exit2 syscall
 
 As a group:
-touch syscall
+touch syscall, Q&A
 
 DESCRIPTION OF HOW CODE WORKS:
 shutdown2 syscall: Works identical to the first shutdown, 
 with the addition of needing to get the user's message off of the trap frame.
 This is then printed in kernel space before the program shuts down.
 
-mkdir2 syscall:
+mkdir2 syscall: Works similarly to the mkdir system call. The difference is 
+two paths and inodes will be used instead of one. As a result create and iunlockput
+will each be used twice to create and provide the directories.
 
 exit2 syscall:
 
